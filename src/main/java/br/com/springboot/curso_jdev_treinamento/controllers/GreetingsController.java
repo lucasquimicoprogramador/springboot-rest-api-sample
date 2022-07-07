@@ -118,10 +118,11 @@ import br.com.springboot.curso_jdev_treinamento.repository.UsuarioRepository;
  } 
 	@GetMapping(value = "buscarPorNome")/*mapeia a url*/
 	@ResponseBody /*descrição da resposta*/
-	public ResponseEntity<List<Usuario>> buscarPorNome(@RequestParam (name ="name")String name){/*Recebe oa dados para consultar*/
+	public ResponseEntity<List<Usuario>> buscarPorNome(@RequestParam (name ="name") String name){/*Recebe oa dados para consultar*/
 		 
+		System.out.println(name);
 		
-	List<Usuario> usuario =	usuarioRepository.buscarPorNome(name.trim().toUpperCase());
+	List<Usuario> usuario =	usuarioRepository.buscarPorNome(name.trim());
 		
 		return new ResponseEntity<List<Usuario>>(usuario, HttpStatus.OK);
 	
